@@ -43,8 +43,8 @@ const worlds: World[] = [
 const captions = [
   { line: 'We passed like distant comets.', echo: 'Never close enough to light our own sky.' },
   { line: 'We orbited the same worlds.', echo: 'Always near, but never together.' },
-  { line: 'We searched across starfields.', echo: 'Hoping every path would lead to you.' },
-  { line: "And still I found you.", echo: 'Through every universe, against every odds.' },
+  { line: 'We chased one another across starfields.', echo: 'Hoping every path would lead to you.' },
+  { line: 'Then finally, I found you.', echo: 'Through every universe, against all odds.' },
 ];
 
 const CAPTION_DURATION_MS = 7000;

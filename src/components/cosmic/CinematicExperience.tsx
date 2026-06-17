@@ -104,13 +104,13 @@ const CinematicExperience: React.FC = () => {
           <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
             <div className="space-y-5 max-w-2xl">
               <p className="font-serif text-2xl sm:text-4xl md:text-5xl font-light text-white animate-fade-in-slow drop-shadow-[0_0_20px_rgba(0,0,0,0.9)]">
-                After every missed world and every cold comet...
+                Every missed world only made one thing clear...
               </p>
               <p
                 className="font-serif text-3xl sm:text-5xl md:text-6xl font-semibold bg-gradient-to-r from-fuchsia-200 via-white to-purple-200 bg-clip-text text-transparent animate-fade-in-slow drop-shadow-[0_0_30px_rgba(240,171,252,0.7)]"
                 style={{ animationDelay: '2.4s', opacity: 0, animationFillMode: 'forwards' }}
               >
-                I'd tear through every single universe to reach you.
+                There was no universe I would not cross for you.
               </p>
             </div>
           </div>
@@ -126,7 +126,7 @@ const CinematicExperience: React.FC = () => {
 
           <div className="relative z-10 flex min-h-full flex-col items-center justify-center px-6 py-16 text-center">
             <p className="font-serif text-2xl sm:text-4xl font-light text-white animate-fade-in-slow drop-shadow-[0_0_20px_rgba(139,92,246,0.5)]">
-              Until I found my favorite universe.
+              Until I arrived in the universe meant for us.
             </p>
 
             {/* Photo frame */}

@@ -41,11 +41,13 @@ const worlds: World[] = [
 ];
 
 const captions = [
-  { line: 'We never met.', echo: 'A thousand timelines. Zero us.' },
-  { line: 'We met too late.', echo: 'When fate moved too slow.' },
-  { line: 'We almost missed each other.', echo: 'By a single breath.' },
-  { line: "But I'd still find you.", echo: 'In every universe. Every time.' },
+  { line: 'We passed like distant comets.', echo: 'Never close enough to light our own sky.' },
+  { line: 'We orbited the same worlds.', echo: 'Always near, but never together.' },
+  { line: 'We searched across starfields.', echo: 'Hoping every path would lead to you.' },
+  { line: "And still I found you.", echo: 'Through every universe, against every odds.' },
 ];
+
+const CAPTION_DURATION_MS = 7000;
 
 const Multiverse: React.FC<{ active: boolean }> = ({ active }) => {
   const [idx, setIdx] = useState(0);
@@ -62,8 +64,8 @@ const Multiverse: React.FC<{ active: boolean }> = ({ active }) => {
     }, 1800);
     const c = setInterval(() => {
       setShowEcho(false);
-      setCap((i) => (i + 1) % captions.length);
-    }, 7000);
+      setCap((i) => Math.min(i + 1, captions.length - 1));
+    }, CAPTION_DURATION_MS);
     return () => {
       clearInterval(w);
       clearInterval(c);

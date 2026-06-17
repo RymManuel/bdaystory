@@ -37,20 +37,10 @@ const LetterModal: React.FC<LetterModalProps> = ({ open, onClose }) => {
           </div>
 
           <div className="max-h-[55vh] overflow-y-auto pr-2 text-white/80 leading-relaxed letter-scroll">
-            <p className="font-serif text-base sm:text-lg italic text-white/90">My Love,</p>
-            <p className="mt-4 text-sm sm:text-base">
-              [INSERT PERSONAL LETTER HERE]
-            </p>
-            <p className="mt-4 text-sm sm:text-base text-white/60">
-              Out of every timeline, every possibility, and every version of reality that could
-              ever exist — I am grateful beyond words that this is the one where I get to know you.
-            </p>
-            <p className="mt-4 text-sm sm:text-base text-white/60">
-              You are my favorite coincidence and my surest certainty. Across a billion billion
-              worlds, my heart would always find its way back to yours.
-            </p>
-            <p className="mt-6 font-serif text-base sm:text-lg italic text-fuchsia-200">
-              Forever yours, in this universe and all the rest.
+            <p className="font-serif text-base sm:text-lg italic text-white/90">My Baby,</p>
+            <p className="mt-4 text-sm sm:text-base text-white/85">
+              Happy Birthday Baby ko. Stay safe, stay healthy and be a good girl lang always. I look
+              forward to achieving success together with you, Iloveyou🤍
             </p>
           </div>
 

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { playMusic } from '@/lib/music';
 
 const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     let p = 0;
@@ -11,13 +13,18 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
         p = 100;
         clearInterval(interval);
         setProgress(100);
-        setTimeout(onComplete, 900);
+        setReady(true);
       } else {
         setProgress(p);
       }
     }, 130);
     return () => clearInterval(interval);
-  }, [onComplete]);
+  }, []);
+
+  const begin = async () => {
+    await playMusic();
+    onComplete();
+  };
 
   const stars = Array.from({ length: 60 });
 
@@ -60,6 +67,15 @@ const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => 
         <p className="mt-4 font-mono text-xs tracking-widest text-white/50">
           {Math.floor(progress)}% — calibrating timelines...
         </p>
+
+        {ready && (
+          <button
+            onClick={begin}
+            className="mt-10 animate-fade-in rounded-full border border-fuchsia-400/60 bg-gradient-to-r from-purple-600/40 to-fuchsia-600/40 px-10 py-3.5 text-sm uppercase tracking-[0.25em] text-white shadow-[0_0_40px_rgba(217,70,239,0.5)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_60px_rgba(217,70,239,0.8)]"
+          >
+            Enter the Multiverse
+          </button>
+        )}
       </div>
     </div>
   );

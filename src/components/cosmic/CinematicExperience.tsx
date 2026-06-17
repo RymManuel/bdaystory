@@ -7,9 +7,10 @@ import Multiverse from './Multiverse';
 import HeartConverge from './HeartConverge';
 import Confetti from './Confetti';
 import LetterModal from './LetterModal';
-import MusicToggle from './MusicToggle';
 import CursorTrail from './CursorTrail';
 import PhotoFrame from './PhotoFrame';
+
+const PHOTO_REVEAL_DELAY_MS = 2200;
 
 
 type Scene = 'loading' | 'scene1' | 'scene2' | 'scene3' | 'scene4';
@@ -31,7 +32,7 @@ const CinematicExperience: React.FC = () => {
   // Scene 2 -> 3
   useEffect(() => {
     if (scene === 'scene2') {
-      const t = setTimeout(() => setScene('scene3'), 11500);
+      const t = setTimeout(() => setScene('scene3'), 30000);
       return () => clearTimeout(t);
     }
   }, [scene]);
@@ -48,19 +49,20 @@ const CinematicExperience: React.FC = () => {
   useEffect(() => {
     if (scene === 'scene4') {
       const timers = [
-        setTimeout(() => setReveal4(1), 2200),
+        setTimeout(() => setReveal4(1), PHOTO_REVEAL_DELAY_MS),
         setTimeout(() => setReveal4(2), 4200),
         setTimeout(() => setReveal4(3), 6000),
         setTimeout(() => setReveal4(4), 7800),
       ];
       return () => timers.forEach(clearTimeout);
     }
+
+    setReveal4(0);
   }, [scene]);
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-black text-white font-sans">
       <CursorTrail />
-      {scene !== 'loading' && <MusicToggle />}
 
       {/* LOADING */}
       {scene === 'loading' && <LoadingScreen onComplete={() => setScene('scene1')} />}
@@ -105,10 +107,10 @@ const CinematicExperience: React.FC = () => {
                 But if infinite universes truly exist...
               </p>
               <p
-                className="font-serif text-3xl sm:text-5xl md:text-6xl font-light text-fuchsia-200 animate-fade-in-slow drop-shadow-[0_0_25px_rgba(240,171,252,0.6)]"
+                className="font-serif text-3xl sm:text-5xl md:text-6xl font-semibold bg-gradient-to-r from-fuchsia-200 via-white to-purple-200 bg-clip-text text-transparent animate-fade-in-slow drop-shadow-[0_0_30px_rgba(240,171,252,0.7)]"
                 style={{ animationDelay: '2.4s', opacity: 0, animationFillMode: 'forwards' }}
               >
-                I'd search every single one.
+                I'd tear through every single one.
               </p>
             </div>
           </div>
@@ -136,7 +138,9 @@ const CinematicExperience: React.FC = () => {
               style={{ opacity: reveal4 >= 2 ? 1 : 0 }}
             >
               <p className="font-serif text-xl sm:text-3xl font-light text-white">And in every universe...</p>
-              <p className="font-serif text-2xl sm:text-4xl font-light text-fuchsia-200">I'd still choose you.</p>
+              <p className="font-serif text-2xl sm:text-4xl font-light bg-gradient-to-r from-fuchsia-200 via-white to-purple-200 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(240,171,252,0.6)]">
+                I'd still choose you, my baby.
+              </p>
             </div>
 
             <h1
@@ -145,7 +149,7 @@ const CinematicExperience: React.FC = () => {
             >
               <Heart className="h-7 w-7 sm:h-10 sm:w-10 text-fuchsia-500 fill-fuchsia-500 animate-heartbeat" />
               <span className="bg-gradient-to-r from-fuchsia-300 via-purple-200 to-blue-300 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(240,171,252,0.5)]">
-                Happy Birthday, My Love
+                Happy Birthday, My Baby
               </span>
               <Heart className="h-7 w-7 sm:h-10 sm:w-10 text-fuchsia-500 fill-fuchsia-500 animate-heartbeat" />
             </h1>

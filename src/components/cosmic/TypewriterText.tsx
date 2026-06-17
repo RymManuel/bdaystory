@@ -61,17 +61,25 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
 
   return (
     <div className={className}>
-      {displayed.map((line, i) => (
-        <p key={i} className={`${lineClassName} animate-fade-in`}>
-          {line}
-        </p>
-      ))}
-      {currentLine && lineIdx < lines.length && (
-        <p className={lineClassName}>
-          {currentLine}
-          <span className="inline-block w-[2px] h-[1em] bg-purple-300 ml-1 align-middle animate-pulse" />
-        </p>
-      )}
+      {lines.map((line, i) => {
+        const isComplete = i < displayed.length;
+        const isActive = i === lineIdx;
+        const visibleText = isComplete ? displayed[i] : isActive ? currentLine : '';
+
+        return (
+          <p key={i} className={`${lineClassName} grid`}>
+            <span className="col-start-1 row-start-1 invisible select-none" aria-hidden="true">
+              {line}
+            </span>
+            <span className="col-start-1 row-start-1">
+              {visibleText}
+              {isActive && (
+                <span className="inline-block w-[2px] h-[1em] bg-purple-300 ml-1 align-middle animate-pulse" />
+              )}
+            </span>
+          </p>
+        );
+      })}
     </div>
   );
 };

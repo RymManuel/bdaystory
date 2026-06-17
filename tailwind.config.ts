@@ -121,6 +121,20 @@ export default {
           '80%': { opacity: '1' },
           '100%': { opacity: '0.4' },
         },
+        'portal-ring': {
+          '0%': { opacity: '0.6', transform: 'scale(0.92) rotate(0deg)' },
+          '50%': { opacity: '0.15', transform: 'scale(1.08) rotate(180deg)' },
+          '100%': { opacity: '0.6', transform: 'scale(0.92) rotate(360deg)' },
+        },
+        'text-impact': {
+          '0%': { opacity: '0', transform: 'scale(0.88) translateY(24px)', filter: 'blur(6px)' },
+          '40%': { opacity: '1', transform: 'scale(1.04) translateY(0)', filter: 'blur(0)' },
+          '100%': { opacity: '1', transform: 'scale(1) translateY(0)', filter: 'blur(0)' },
+        },
+        'float-particle': {
+          '0%,100%': { transform: 'translateY(0) translateX(0)', opacity: '0.2' },
+          '50%': { transform: 'translateY(-30px) translateX(12px)', opacity: '0.9' },
+        },
         streak: {
           '0%': { transform: 'translateY(-100%)', opacity: '0' },
           '50%': { opacity: '0.6' },
@@ -144,6 +158,9 @@ export default {
         float: 'float 5s ease-in-out infinite',
         heartbeat: 'heartbeat 1.4s ease-in-out infinite',
         'caption-pop': 'caption-pop 2.6s ease-in-out forwards',
+        'portal-ring': 'portal-ring 4s ease-in-out infinite',
+        'text-impact': 'text-impact 1.1s cubic-bezier(0.16,1,0.3,1) forwards',
+        'float-particle': 'float-particle 4s ease-in-out infinite',
         streak: 'streak 2.5s linear infinite',
         'spin-slow': 'spin-slow 8s linear infinite',
         'spin-reverse': 'spin-reverse 6s linear infinite',
